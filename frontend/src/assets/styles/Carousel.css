@@ -1,35 +1,35 @@
-.Carousel {
+.Carousel{
     height: 100vh;
-    margin-top: -50x;
+    margin-top: -50px;
     position: relative;
 }
-
-.Carousel .list .item {
+.Carousel .list .item{
     position: absolute;
     inset: 0 0 0 0;
     overflow: hidden;
     opacity: 0;
-    transition: .5 s;
-}
+    transition: .5s;
 
-.Carousel .list .item::after {
+    font-size: 1.6rem;
+}
+.Carousel .list .item img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(70%);
+}
+.Carousel .list .item::after{
     content: '';
     width: 100%;
     height: 100%;
+    position: absolute;
     left: 0;
     bottom: 0;
-    position: absolute;
     background-image: linear-gradient(
-        to top, #000 20%, transparent
-    ); 
+        to top, #000 6%, transparent
+    );
 }
-
-.Carousel .list .item .active {
-    opacity: 1;
-    z-index: 10;
-}
-
-.Carousel .list .item .content {
+.Carousel .list .item .content{
     position: absolute;
     left: 10%;
     top: 20%;
@@ -37,20 +37,103 @@
     max-width: 80%;
     z-index: 1;
 }
-
-.Carousel .list .item .content p:nth-child(1) {
+.Carousel .list .item .content p:nth-child(1){
     text-transform: uppercase;
-    letter-spacing: 10px;
 }
-
-.Carousel .list .item .content h2 {
+.Carousel .list .item .content h2{
+    font-size: 100px;
+    margin: 0;
+}
+.Carousel .list .item .content h2{
     font-size: 100px;
     margin: 0;
 }
 
-.Carousel .list .item img {
+/* ================================= ACTIVE ITEM ================================ */
+.Carousel .list .item.active{
+    opacity: 1;
+    z-index: 10;
+}
+@keyframes showContent {
+    to{
+        transform: translateY(0);
+        filter: blur(0);
+        opacity: 1;
+    }
+}
+.Carousel .list .item.active p:nth-child(1),
+.Carousel .list .item.active h2,
+.Carousel .list .item.active p:nth-child(3){
+    transform: translateY(30px);
+    filter: blur(20px);
+    opacity: 0;
+    animation: showContent .3s .3s ease-in-out 1 forwards;
+}
+.Carousel .list .item.active h2{
+    animation-delay: 0.3s;
+}
+.Carousel .list .item.active p:nth-child(3){
+    animation-duration: 0.3s;
+}
+
+/* =========================================== THUMBNAILS ============================================== */
+
+.thumbnail{
+    position: absolute;
+    bottom: 50px;
+    z-index: 11;
+    display: flex;
+    gap: 10px;
+    width: 100%;
+    height: 250px;
+    padding: 0 50px;
+    box-sizing: border-box;
+    overflow: auto;
+    justify-content: center;    
+    align-items: flex-end;
+    gap: 3rem;
+
+    font-size: 1.6rem;
+
+    /* background-color: red; */
+
+}
+.thumbnail::-webkit-scrollbar{
+    width: 0;
+}
+.thumbnail .item{
+    width: 150px;
+    height: 220px;
+    filter: brightness(.5);
+    transition: .5s;
+    flex-shrink: 0;
+    color: gray;
+}
+.thumbnail .item img{
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
+    border-radius: 10px;
 }
-  
+.thumbnail .item.active{
+    filter: brightness(1.5);
+    color: var(--text-color);
+}
+.thumbnail .item .content{
+    position: absolute;
+    inset: auto 10px 10px 10px;
+}
+.thumbnail .item .content .detail{
+    text-align: center;
+    font-size: 1rem;
+    margin-bottom: 2rem;
+}
+
+@media screen and (max-width: 678px) {
+    .thumbnail{
+        justify-content: start;
+    }
+    .Carousel .list .item .content h2{
+        font-size: 60px;
+    }
+}

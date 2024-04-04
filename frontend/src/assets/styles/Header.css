@@ -10,6 +10,7 @@ header {
     position: relative;
     margin-top: 1rem;
     z-index: 100;
+    font-size: 1.6rem;
 
     /* background-color: red; */
 }
@@ -22,4 +23,13 @@ header .menu {
     justify-content: center;
     align-items: center;
     gap: 3rem;
+}
+
+header .menu li {
+    margin-right: 20px;
+    cursor: pointer;
+}
+
+header .menu li.active {
+    text-decoration: underline;
 }

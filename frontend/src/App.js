@@ -8,7 +8,7 @@ import "./assets/styles/App.css"
 // Import components
 // import HelloWorld from './components/HelloWorld';
 import Header from "./components/Header";
-import Carousel from "./components/Carousel";
+import Carousel from "./components/Carousel/Carousel";
 
 function App() {
   return (
