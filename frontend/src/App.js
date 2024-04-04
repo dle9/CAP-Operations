@@ -9,6 +9,8 @@ import HelloWorld from './components/HelloWorld';
 
 function App() {
   return (
+
+    // render the 'HelloWorld' component
     <HelloWorld />
   );
 }

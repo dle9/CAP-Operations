@@ -23,7 +23,9 @@ Description: Define backend URL paths that client can communicate with
 from django.contrib import admin
 from django.urls import path, include
 
-urlpatterns = [
+urlpatterns = [ 
     path('admin/', admin.site.urls),
-    path('api/', include('capops_api.urls'))
+
+    # all paths in urls.helloworld will be routed under <domain>/api/<helloworld_paths>
+    path('api/', include('capops_api.urls.helloworld')),
 ]
