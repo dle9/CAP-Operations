@@ -2,7 +2,7 @@
 ### Setup
 Start Frontend
 ```
-~/frontend$ npm start
+~/frontend$ npm install; npm start
 ```
 Enter Python Virtual Environment (New Terminal)
 ```
