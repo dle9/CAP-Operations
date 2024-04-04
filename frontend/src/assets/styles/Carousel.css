@@ -109,15 +109,9 @@
     flex-shrink: 0;
     color: gray;
 
-    /* background-color: red; */
+    /* background-color: blue; */
     overflow: hidden;
-    
-}
-.thumbnail .item img{
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    border-radius: 10px;
+    border: 2px solid var(--detail);
 }
 .thumbnail .item.active{
     filter: brightness(1.5);
@@ -126,7 +120,11 @@
 .thumbnail .item .content{
     position: absolute;
     inset: auto 10px 10px 10px;
-
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 .thumbnail .item .content .detail{
     font-size: 1rem;

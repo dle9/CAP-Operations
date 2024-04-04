@@ -2,8 +2,9 @@
 
 /* root style controller for all components (global) */
 :root {
-  --text-color: white;
+  --text-color : white;
   --background-color : black;
+  --detail : rgb(30, 75, 0);
 }
 
 /* the root body */

@@ -12,6 +12,7 @@ function Header() {
 
     return (
         <header>
+            <div className='title'>CAP Operations: Cyber Response</div>
             <ul className='menu'>
                 <li className={activeItem === 'Home' ? 'active' : ''} onClick={() => handleItemClick('Home')}>
                     Home

@@ -1,18 +1,16 @@
 header {
-    width: 1200px;
-    max-width: 90%;
-    margin: auto;
+    width: 100%;
     display: flex;
-    /* grid-template-columns: 50px 5fr 50px; */
-    grid-template-rows: 50px;
-    justify-content: center;
-    align-items: center;
+    justify-content: space-between; /* Align items horizontally with space between */
+    align-items: center; /* Align items vertically center */
     position: relative;
     margin-top: 1rem;
     z-index: 100;
     font-size: 1.6rem;
+}
 
-    /* background-color: red; */
+header .title {
+    margin-left: 2rem; /* Add margin to the left for spacing */
 }
 
 header .menu {
@@ -20,13 +18,11 @@ header .menu {
     margin: 0;
     list-style: none;
     display: flex;
-    justify-content: center;
-    align-items: center;
     gap: 3rem;
+    margin-right: 2rem;
 }
 
 header .menu li {
-    margin-right: 20px;
     cursor: pointer;
 }
 

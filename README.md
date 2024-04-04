@@ -35,6 +35,8 @@ python3 manage.py runserver
 - frontend: frontend code (React)  
 - backend: backend code (Django)
 - capops_api: API code
+- Carousel: The slideshow container
+- Conductor: The thing that handles API data and sends to Carousel
 
 
 
