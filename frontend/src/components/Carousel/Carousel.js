@@ -33,8 +33,8 @@ function Carousel() {
         logo: ExtraHopLogo,
         acronym: '',
         name: 'ExtraHop',
-        description: '14 Critical detections',
-        events: '14', // aggregate # of events and send to thumbnails
+        description: '6 Critical detections, 30 High detections',
+        events: '36', // aggregate # of events and send to thumbnails
         }
     ];
 

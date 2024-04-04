@@ -102,12 +102,16 @@
     width: 0;
 }
 .thumbnail .item{
-    width: 150px;
-    height: 220px;
+    width: 13rem;
+    height: 5rem;
     filter: brightness(.5);
     transition: .5s;
     flex-shrink: 0;
     color: gray;
+
+    /* background-color: red; */
+    overflow: hidden;
+    
 }
 .thumbnail .item img{
     width: 100%;
@@ -122,11 +126,11 @@
 .thumbnail .item .content{
     position: absolute;
     inset: auto 10px 10px 10px;
+
 }
 .thumbnail .item .content .detail{
-    text-align: center;
     font-size: 1rem;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
 }
 
 @media screen and (max-width: 678px) {
