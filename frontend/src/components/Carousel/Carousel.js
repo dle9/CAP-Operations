@@ -41,11 +41,13 @@ function Carousel() {
     // init variables
     const [itemActive, setItemActive] = useState(0);
     const itemCount = items.length;
-    const [timerInterval, setTimerInterval] = useState(3333);
+    const defaultTimer = 3333;
+    const extendedTimer = 33333; // timer after using arrow keys 
+    const [timerInterval, setTimerInterval] = useState(defaultTimer);
     
     // handle left and right movement
-    const next = () => { setItemActive((itemActive + 1) % itemCount); setTimerInterval(3333); }
-    const prev = () => { setItemActive((itemActive - 1 + itemCount) % itemCount); setTimerInterval(3333); }
+    const next = () => { setItemActive((itemActive + 1) % itemCount); setTimerInterval(defaultTimer); }
+    const prev = () => { setItemActive((itemActive - 1 + itemCount) % itemCount); setTimerInterval(defaultTimer); }
 
     // 'keydown' doesn't do anything, just an intermediate point
     // that comes before the action taken after 'keyup'
@@ -67,10 +69,10 @@ function Carousel() {
     const handleKeyUp = ((event) => {
         if (event.key === 'ArrowLeft') {
             prev();
-            setTimerInterval(9999);
+            setTimerInterval(extendedTimer);
         } else if (event.key === 'ArrowRight') {
             next();
-            setTimerInterval(9999);
+            setTimerInterval(extendedTimer);
         }
     });
     useEffect(() => {
