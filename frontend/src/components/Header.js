@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import '../assets/styles/Header.css';
 
 function Header() {
-    // State to track the active menu item
     const [activeItem, setActiveItem] = useState('Home');
 
-    // Function to handle click on menu items
     const handleItemClick = (item) => {
         setActiveItem(item);
     };
@@ -15,13 +14,13 @@ function Header() {
             <div className='title'>CAP Operations: Cyber Response</div>
             <ul className='menu'>
                 <li className={activeItem === 'Home' ? 'active' : ''} onClick={() => handleItemClick('Home')}>
-                    Home
+                    <Link to="/" className='menu-link'>Home</Link>
                 </li>
                 <li className={activeItem === 'Manual' ? 'active' : ''} onClick={() => handleItemClick('Manual')}>
-                    Manual
+                    <Link to="/manual" className='menu-link'>Manual</Link>
                 </li>
                 <li className={activeItem === 'About' ? 'active' : ''} onClick={() => handleItemClick('About')}>
-                    About
+                    <Link to="/about" className='menu-link'>About</Link>
                 </li>
             </ul>
         </header>

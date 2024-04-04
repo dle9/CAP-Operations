@@ -1,8 +1,8 @@
 header {
     width: 100%;
     display: flex;
-    justify-content: space-between; /* Align items horizontally with space between */
-    align-items: center; /* Align items vertically center */
+    justify-content: space-between;
+    align-items: center;
     position: relative;
     margin-top: 1rem;
     z-index: 100;
@@ -10,7 +10,7 @@ header {
 }
 
 header .title {
-    margin-left: 2rem; /* Add margin to the left for spacing */
+    margin-left: 2rem;
 }
 
 header .menu {
@@ -28,4 +28,10 @@ header .menu li {
 
 header .menu li.active {
     text-decoration: underline;
+}
+
+/* Additional styles for Link component */
+.menu-link {
+    text-decoration: none; /* Remove underline */
+    color: inherit; /* Use the same color as parent */
 }
