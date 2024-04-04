@@ -2,15 +2,18 @@
 ### Setup
 Start Frontend
 ```
-~/frontend$ npm install; npm start
+cd frontend
+npm install
+npm start
 ```
 Enter Python Virtual Environment (New Terminal)
 ```
-~$ source pyvenv/bin/activate
+source pyvenv/bin/activate
 ```
 Start Backend
 ```
-(pyvenv) ~/backend$ python3 -m manage.py runserver
+cd backend
+python3 manage.py runserver
 ```
 ### Backend
 - See 'Contribute' section. 
@@ -38,27 +41,31 @@ Start Backend
 # Contribute
 ### Define a URL path for an API
 - ~/backend/backend/urls.py
-  - Contains **all URL paths** for the backend server
+  - **Deploys all URL paths** for the backend server
 - ~/backend/capops_api/views/\<view\>.py 
   - Defines static API **functions for a specific view**
 - ~/backend/capops_api/urls
-  - Defines API paths and uses the static API functions from views
+  - **Defines API paths** and uses the static API functions from views
 
 
 
 # Development
-### Work in the Python Virtual Environment
-```
-~$ source pyvenv/bin/activate
-```
 ### Initialization
 ```
-(pyvenv) ~$ pip install django
-(pyvenv) ~$ django-admin startproject <proj name>
-~$ npx create-react-app <app name>
+source pyvenv/bin/activate
+pip install django
+
+django-admin startproject django_project
+npx create-react-app react_app
+
+cd djangoproject
+python3 manage.py startapp api
 ```
-### Packages required
+### Install Packages
 ```
-(pyvenv) ~$ pip install djangorestframework django-cors-headers
-~/frontend$ npm install axios 
+source pyvenv/bin/activate
+pip install djangorestframework django-cors-headers
+
+cd frontend
+npm install axios 
 ```
