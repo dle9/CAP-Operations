@@ -15,4 +15,4 @@ def hello_world1(request):
 
 @api_view(['GET'])
 def hello_world2(request):
-    return Response({'message': 'Made by Deric.'})
+    return Response({'message': 'Made by Deric.'})  

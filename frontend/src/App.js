@@ -3,15 +3,22 @@
  * Description: The application. Integrates the components
  */
 
+import "./assets/styles/App.css"
+
 // Import components
-import './components/HelloWorld'
-import HelloWorld from './components/HelloWorld';
+// import HelloWorld from './components/HelloWorld';
+import Header from "./components/Header";
+import Carousel from "./components/Carousel";
 
 function App() {
   return (
-
     // render the 'HelloWorld' component
-    <HelloWorld />
+    // <HelloWorld />
+
+    <div>
+      <Header />
+      <Carousel />
+    </div>
   );
 }
 

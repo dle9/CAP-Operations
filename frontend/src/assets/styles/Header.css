@@ -1,0 +1,25 @@
+header {
+    width: 1200px;
+    max-width: 90%;
+    margin: auto;
+    display: flex;
+    /* grid-template-columns: 50px 5fr 50px; */
+    grid-template-rows: 50px;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin-top: 1rem;
+    z-index: 100;
+
+    /* background-color: red; */
+}
+
+header .menu {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+}
