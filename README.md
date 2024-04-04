@@ -69,5 +69,5 @@ source pyvenv/bin/activate
 pip install djangorestframework django-cors-headers
 
 cd frontend
-npm install axios 
+npm install axios react-router-dom
 ```
