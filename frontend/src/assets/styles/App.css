@@ -4,7 +4,7 @@
 :root {
   --text-color : white;
   --background-color : black;
-  --detail : rgb(30, 75, 0);
+  --detail : rgb(66, 0, 0);
 }
 
 /* the root body */
@@ -17,10 +17,23 @@ body {
   color: var(--text-color);
 
   background-color: var(--background-color);
-
 }
 
+/* ======================= MANUAL PAGE ========================= */
+.manual {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
 
+.manual iframe { 
+  background-color: var(--detail);
+  width: 70rem;
+  padding: 9px;
+  height: 80vh;
+  border: white solid 1px;
+}
 
 
 
