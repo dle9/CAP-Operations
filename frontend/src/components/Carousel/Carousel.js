@@ -104,13 +104,14 @@ function Carousel() {
                     ))}
                 </div>
 
-                <div className='pause'>
-                    <button>Pause</button>
-                </div>
-
                 {/* TODO, add pause and unpause button logic */}
             </div>
             <Thumbnails items={items} itemActive={itemActive} />
+
+            <footer>
+                <div>Navigate w/ Arrow Keys</div>
+                <div>Press 'Space' to pause</div>
+            </footer>
         </div>
     );
 }

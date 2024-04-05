@@ -93,20 +93,20 @@
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 100;
+    display: inline-flex;
 }
 .pause button{
-    background-color: #eee5;
-    border: none;
-    font-family: monospace;
-    width: 40px;
-    height: 40px;
-    border-radius: 5px;
+    /* background-color: #eee5; */
+    /* border: none; */
+    /* border-radius: 5px; */
+    padding: 10px;
     font-size: x-large;
-    color: #eee;
+    /* color: #eee; */
     transition: .5s;
+
 }
 .pause button:hover{
-    background-color: #eee;
+    /* background-color: #eee; */
     color: black;
 }
 
@@ -177,4 +177,13 @@
     .Carousel .list .item .content h2{
         font-size: 60px;
     }
+}
+
+/* ==================================== FOOTER ===============================================*/
+footer{
+    position: absolute;
+    top: 90%;
+    left: 3%;
+    /* transform: translate(-50%, -50%); */
+    z-index: 100;
 }
