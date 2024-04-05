@@ -7,10 +7,12 @@ header {
     margin-top: 1rem;
     z-index: 100;
     font-size: 1.6rem;
+    overflow: hidden;
 }
 
 header .title {
     margin-left: 2rem;
+    text-wrap: nowrap;
 }
 
 header .menu {

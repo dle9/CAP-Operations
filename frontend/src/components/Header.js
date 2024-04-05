@@ -1,12 +1,25 @@
-import React, { useState } from 'react';
+/**
+ * Author: Deric Le
+ * Description: Header/navigation bar
+ */
+
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import '../assets/styles/Header.css';
 
 function Header() {
     const [activeItem, setActiveItem] = useState('Home');
 
+    useEffect(() => {
+        const storedItem = localStorage.getItem('activeItem');
+        if (storedItem) {
+            setActiveItem(storedItem);
+        }
+    }, []);
+
     const handleItemClick = (item) => {
         setActiveItem(item);
+        localStorage.setItem('activeItem', item); 
     };
 
     return (
