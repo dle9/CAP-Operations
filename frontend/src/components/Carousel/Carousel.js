@@ -14,6 +14,7 @@ function Carousel() {
             name: 'ServiceNow',
             description: '2 Calls queued',
             events: '2', // aggregate # of events and send to thumbnails
+            url: 'https://tamu.service-now.com/',
         },
         {
             logo: CrowdStrikeLogo,
@@ -21,6 +22,7 @@ function Carousel() {
             name: 'CrowdStrike',
             description: '1 Critical and 6 High detections',
             events: '7', // aggregate # of events and send to thumbnails
+            url: 'https://falcon.crowdstrike.com/',
         },
         {
             logo: ExtraHopLogo,
@@ -28,27 +30,49 @@ function Carousel() {
             name: 'ExtraHop',
             description: '6 Critical detections, 30 High detections',
             events: '36', // aggregate # of events and send to thumbnails
+            url: 'https://eda.extrahop.cloud.tamu.edu/',
         },
     ];
 
     // init variables
-    const [itemActive, setItemActive] = useState(0);
     const defaultTimer = 3333;
     const extendedTimer = 33333;
+    const [itemActive, setItemActive] = useState(0);
     const [timerInterval, setTimerInterval] = useState(defaultTimer);
     const [isSpacebarLocked, setIsSpacebarLocked] = useState(false);
+    const [isWarning, setIsWarning] = useState(false);    
 
     // handle left and right movement
     const next = () => {
         if (!isSpacebarLocked) {
             setItemActive((itemActive + 1) % items.length);
             setTimerInterval(defaultTimer);
+        } else {
+            const footer = document.querySelector('footer');
+            if (!isWarning) {
+                setIsWarning(true);
+                footer.classList.toggle('footer-shake');
+                setTimeout(() => {
+                    setIsWarning(false);
+                    footer.classList.toggle('footer-shake');
+                }, 3000);
+            }
         }
     };
     const prev = () => {
         if (!isSpacebarLocked) {
             setItemActive((itemActive - 1 + items.length) % items.length);
             setTimerInterval(defaultTimer);
+        } else {
+            const footer = document.querySelector('footer');
+            if (!isWarning) {
+                setIsWarning(true);
+                footer.classList.toggle('footer-shake');
+                setTimeout(() => {
+                    setIsWarning(false);
+                    footer.classList.toggle('footer-shake');
+                }, 3000);
+            }
         }
     };
 
@@ -56,15 +80,15 @@ function Carousel() {
     const handleKeyUp = (event) => {
         if (event.key === 'ArrowLeft') {
             prev();
-            setTimerInterval(extendedTimer);
+            setTimerInterval(extendedTimer); // extend the timer when recently pressed arrow keys
         } else if (event.key === 'ArrowRight') {
             next();
-            setTimerInterval(extendedTimer);
+            setTimerInterval(extendedTimer); // extend the timer when recently pressed arrow keys
         } else if (event.key === ' ') {
             setIsSpacebarLocked(!isSpacebarLocked);
             const item = document.querySelector('.thumbnail .item.active');
             item.classList.toggle('active-border');
-            setTimerInterval(defaultTimer);
+            setTimerInterval(defaultTimer); // reset the timer when unlocked
         }
     };
 
@@ -104,7 +128,6 @@ function Carousel() {
                     ))}
                 </div>
 
-                {/* TODO, add pause and unpause button logic */}
             </div>
             <Thumbnails items={items} itemActive={itemActive} />
 
@@ -112,6 +135,7 @@ function Carousel() {
                 <div>Navigate w/ Arrow Keys</div>
                 <div>Press 'Space' to pause</div>
             </footer>
+            
         </div>
     );
 }
