@@ -1,9 +1,16 @@
-import React, { useState, useEffect } from 'react';
+/**
+ * Author: Deric Le
+ * Description: The carousel/slideshow thingy
+ */
+
 import '../../assets/styles/Carousel.css';
 import ServiceNowLogo from '../../assets/images/servicenow-full.jpg';
 import CrowdStrikeLogo from '../../assets/images/crowdstrike-full.png';
 import ExtraHopLogo from '../../assets/images/extrahop-full.jpg';
-import Thumbnails from './thumbnails';
+
+import Thumbnails from './Thumbnails';
+
+import React, { useState, useEffect, useCallback } from 'react';
 
 function Carousel() {
     // define the items on the carousel
@@ -42,8 +49,9 @@ function Carousel() {
     const [isSpacebarLocked, setIsSpacebarLocked] = useState(false);
     const [isWarning, setIsWarning] = useState(false);    
 
-    // handle left and right movement
-    const next = () => {
+    // handle right movement
+    // useCallback = next() remains the same function instance across renders unless its dependencies change. 
+    const next = useCallback(() => {
         if (!isSpacebarLocked) {
             setItemActive((itemActive + 1) % items.length);
             setTimerInterval(defaultTimer);
@@ -58,8 +66,11 @@ function Carousel() {
                 }, 3000);
             }
         }
-    };
-    const prev = () => {
+    }, [isSpacebarLocked, itemActive, items.length, setItemActive, setTimerInterval, defaultTimer, isWarning, setIsWarning]);
+
+    // handle left movement
+    // useCallback = prev() remains the same function instance across renders unless its dependencies change. 
+    const prev = useCallback(() => {
         if (!isSpacebarLocked) {
             setItemActive((itemActive - 1 + items.length) % items.length);
             setTimerInterval(defaultTimer);
@@ -74,9 +85,8 @@ function Carousel() {
                 }, 3000);
             }
         }
-    };
+    }, [isSpacebarLocked, itemActive, items.length, setItemActive, setTimerInterval, defaultTimer, isWarning, setIsWarning]);
 
-    // take an action when the key is released
     const handleKeyUp = (event) => {
         if (event.key === 'ArrowLeft') {
             prev();
@@ -110,7 +120,7 @@ function Carousel() {
         return () => {
             clearInterval(refreshInterval);
         };
-    }, [itemActive, timerInterval, isSpacebarLocked]);
+    }, [itemActive, timerInterval, isSpacebarLocked, next]);
 
     return (
         <div>

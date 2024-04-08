@@ -1,0 +1,33 @@
+.manual-container {
+    margin-top: -50px;
+    background: linear-gradient(rgba(0,0,0,0.69), rgba(0,0,0,0.69)),
+          url("../images/hacking.jpg");
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  
+    background-color: var(--detail);
+  }
+  
+  .manual-content iframe {
+    margin-top: 4rem;
+    width: 60vw;
+    height: 80vh;
+    padding: 9px;
+    background-color: var(--detail);
+    border: 1px solid white;
+  }
+  
+  .manual-container .footer .text{
+    font-size: 2rem;
+    color: white;
+    text-decoration: none;
+  }
+  
+  .manual-container .footer .text:hover{
+    text-decoration:underline;
+  }

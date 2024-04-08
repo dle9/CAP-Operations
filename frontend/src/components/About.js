@@ -3,7 +3,8 @@
  * Description: About the author
  */
 
-import BirdsBackground from '../assets/images/birds.png'
+import '../assets/styles/About.css'
+import BirdsBackground from '../assets/images/hacking.jpg'
 
 import React from 'react';
 
@@ -12,7 +13,7 @@ function About() {
         <div className="About">
             <div className="list"> 
                 <div className='item'>
-                <img src={BirdsBackground} />
+                <img src={BirdsBackground} alt="Hacking background"/>
                     <div className='content'>
                         <p>Class of 2021-2025</p>
                         <h2>Deric Le</h2>

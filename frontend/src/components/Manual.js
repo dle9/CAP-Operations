@@ -3,6 +3,8 @@
  * Description: Embedded google document
  */
 
+import '../assets/styles/Manual.css'
+
 import React from 'react';
 
 function Manual() {
