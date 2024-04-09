@@ -15,54 +15,57 @@ Start Backend
 cd backend
 python3 manage.py runserver
 ```
-### Backend
-- See 'Contribute' section. 
-- View 'Hello World' files in this order (don't forget to review comments!):
-  -  ~/backend/backend/urls.py
-  -  ~/backend/capops_api/views/helloworld.py
-  -  ~/backend/capops_api/urls/helloworld.py
-### Frontend
-- Follow component structure
-- View ~/frontend/src/App.js
-- View ~/frontend/src/components/HelloWorld.js
-### More  info
-- Last resort: Ask Deric
 
 
 
 # File Structure
-- pyvenv: python virtual envt.
-- frontend: frontend code (React)  
-- backend: backend code (Django)
-- capops_api: API code
-- Carousel: The slideshow container
-- Carousel items: Fetches from APIs and sends to Carousel
+```
+pyvenv: Python virtual envt.
+frontend: Frontend code (React)  
+backend: Backend code (Django)
+capops_api: API code
+Carousel: The slideshow container
+Carousel items: Fetches from APIs and sends to Carousel
+```
 
 
 
 # Contribute
-### Define a URL path for an API
-- ~/backend/backend/urls.py
+### Frontend Development
+```
+~/frontend/src/assets
+  - contains images, backgrounds, icons, etc/
+~/frontend/src/components
+  - add components here
+~/frontend/src/components/Carousel/Carousel.js
+  - parent component for landing page 
+~/frontend/src/components/Carousel/Conductor.js
+  - gathers data from APIs and sends to Carousel 
+~/frontend/src/components/Carousel/Thumbnails.js
+  - the boxes along the bottom of the screen
+~/frontend/src/components/Carousel/items
+  - the frontend tools that fetch data from the backend
+  ```
+### Backend Development
+```
+~/backend/backend/urls.py
   - **Deploys all URL paths** for the backend server
-- ~/backend/capops_api/views/\<view\>.py 
-  - Defines static API **functions for a specific view**
-- ~/backend/capops_api/urls
-  - **Defines API paths** and uses the static API functions from views
-
-
-
-# Development
-### Initialization
+~/backend/capops_api/views/\<view\>.py 
+  - Defines API **functions for a specific View**
+~/backend/capops_api/urls
+  - **Defines API paths** and uses the API functions from Views
 ```
-source pyvenv/bin/activate
-pip install django
-
-django-admin startproject django_project
-npx create-react-app react_app
-
-cd djangoproject
-python3 manage.py startapp api
+### Fullstack step-by-step
 ```
+1. Create a View and define its functions.
+2. Create a URLs file and add appropriate URL Paths using functions inside of that View.
+3. Define the Fetch functions for the tool inside of Carousel/items
+4. Go into Carousel/Conductor.js and add the new data appropriately (The code is very repeatable!)
+5. Go into Carousel/Thumbnails.js and add the new data appropriately (The code is very repeatable!)
+```
+
+
+# Initialization
 ### Install Packages
 ```
 source pyvenv/bin/activate
@@ -74,3 +77,14 @@ npm i --save @fortawesome/fontawesome-svg-core
 npm i --save @fortawesome/free-solid-svg-icons
 npm i --save @fortawesome/react-fontawesome@latest
 ```
+### Start Servers
+```
+source pyvenv/bin/activate
+pip install django
+
+django-admin startproject django_project
+npx create-react-app react_app
+
+cd djangoproject
+python3 manage.py startapp api
+``` 
