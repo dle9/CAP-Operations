@@ -4,9 +4,9 @@
  */
 
 import ServiceNowBg from '../../assets/images/servicenow-full.jpg';
-import CrowdStrikeBg from '../../assets/images/crowdstrike-full.png';
+import CrowdStrikeBg from '../../assets/images/crowdstrike2-full.jpg';
 import ExtraHopBg from '../../assets/images/extrahop-full.jpg';
-import ElasticBg from '../../assets/images/elastic-full.png';
+import ElasticBg from '../../assets/images/elastic2-full.jpg';
 
 import FetchSNOW from './items/ServiceNow';
 import FetchCS from './items/CrowdStrike';
