@@ -27,5 +27,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
 
     # all paths in urls.helloworld will be routed under <domain>/api/<helloworld_paths>
-    path('api/', include('capops_api.urls.helloworld')),
+    # path('api/', include('capops_api.urls.helloworld')),
+
+    path('api/', include('capops_api.urls.tools')),
 ]
