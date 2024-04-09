@@ -1,6 +1,6 @@
 .thumbnail{
     position: absolute;
-    bottom: 50px;
+    bottom: 5.5rem;
     z-index: 11;
     display: flex;
     gap: 10px;
@@ -32,6 +32,8 @@
     /* overflow: hidden; */
     border: 2px solid var(--detail);
     border-radius: 20px;
+
+    cursor: pointer;
 }
 .thumbnail .item:hover{
     transform: scale(110%);
@@ -58,9 +60,12 @@
     margin-bottom: 1rem;
 }
 
-.thumbnail-header{
+
+
+
+.thumbnail-link{
     position: absolute;
-    bottom: 150px;
+    bottom: 2rem;
     z-index: 11;
     display: flex;
     gap: 10px;
@@ -76,31 +81,30 @@
     font-size: 1.6rem;
     
     /* background-color: red; */
-    display:none;
 }
-.thumbnail-header-active{
-    display:block;
-}
-.thumbnail-header::-webkit-scrollbar{
+.thumbnail-link::-webkit-scrollbar{
     width: 0;
 }
-.thumbnail-header .item{
+.thumbnail-link .item{
     width: 13rem;
     height: 5.5rem;
-    filter: brightness(.5);
+    filter: brightness(1.5);
     transition: .5s;
     flex-shrink: 0;
     color: gray;
+
+
+    cursor: pointer;
+}
+.thumbnail-link .item:hover{
+    transform: scale(110%);
 }
 
-.thumbnail-header .item.active{
+.thumbnail-link .item.active{
     filter: brightness(1.5);
     color: var(--text-color);
 }
-
-
-
-.thumbnail-header .item .content{
+.thumbnail-link .item .content{
     position: absolute;
     inset: auto 10px 10px 10px;
     
@@ -109,6 +113,8 @@
     align-items: center;
     justify-content: center;
 }
+
+
 
 @keyframes shake {
     0% { transform: translate(0); }

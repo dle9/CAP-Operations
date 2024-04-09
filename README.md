@@ -70,4 +70,7 @@ pip install djangorestframework django-cors-headers
 
 cd frontend
 npm install axios react-router-dom
+npm i --save @fortawesome/fontawesome-svg-core
+npm i --save @fortawesome/free-solid-svg-icons
+npm i --save @fortawesome/react-fontawesome@latest
 ```
