@@ -108,7 +108,7 @@ function Carousel() {
 
             <footer>
                 <div>Navigate w/ Arrow Keys</div>
-                <div>Press 'Space' to pause</div>
+                <div>Press 'Space' to Pause</div>
             </footer>
             
         </div>

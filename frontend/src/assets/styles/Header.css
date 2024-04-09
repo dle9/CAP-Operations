@@ -32,8 +32,15 @@ header .menu li.active {
     /* text-decoration: underline; */
 }
 
-/* Additional styles for Link component */
 .menu-link {
-    text-decoration: none; /* Remove underline */
-    color: inherit; /* Use the same color as parent */
+    text-decoration: none;
+    color: inherit; 
+}
+
+.menu-link-item {
+    transition: transform 0.3s ease;
+}
+
+.menu-link-item:hover {
+    transform: scale(113%);
 }

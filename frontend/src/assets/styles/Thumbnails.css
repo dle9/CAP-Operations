@@ -24,7 +24,7 @@
     width: 13rem;
     height: 5.5rem;
     filter: brightness(.5);
-    transition: .5s;
+    transition: .3s ease;
     flex-shrink: 0;
     color: gray;
 
@@ -89,7 +89,7 @@
     width: 13rem;
     height: 5.5rem;
     filter: brightness(1.5);
-    transition: .5s;
+    transition: .3s ease;
     flex-shrink: 0;
     color: gray;
 

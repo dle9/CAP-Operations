@@ -27,13 +27,19 @@ function Header() {
             <div className='title'>CAP Operations: Cyber Response</div>
             <ul className='menu'>
                 <li className={activeItem === 'Home' ? 'active' : ''} onClick={() => handleItemClick('Home')}>
-                    <Link to="/" className='menu-link'>Home</Link>
+                    <div className='menu-link-item'>
+                        <Link to="/" className='menu-link'>Home</Link>
+                    </div>
                 </li>
                 <li className={activeItem === 'Manual' ? 'active' : ''} onClick={() => handleItemClick('Manual')}>
-                    <Link to="/manual" className='menu-link'>Manual</Link>
+                    <div className='menu-link-item'>
+                        <Link to="/manual" className='menu-link'>Manual</Link>
+                    </div>
                 </li>
                 <li className={activeItem === 'About' ? 'active' : ''} onClick={() => handleItemClick('About')}>
-                    <Link to="/about" className='menu-link'>About</Link>
+                    <div className='menu-link-item'>
+                        <Link to="/about" className='menu-link'>About</Link>
+                    </div>
                 </li>
             </ul>
         </header>
