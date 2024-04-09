@@ -30,7 +30,7 @@
 
     /* background-color: blue; */
     /* overflow: hidden; */
-    border: 2px solid var(--detail);
+    border: 2px solid white;
     border-radius: 20px;
 
     cursor: pointer;
