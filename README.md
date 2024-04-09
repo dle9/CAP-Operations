@@ -6,12 +6,9 @@ cd frontend
 npm install
 npm start
 ```
-Enter Python Virtual Environment (New Terminal)
+Start Backend (New Terminal)
 ```
 source pyvenv/bin/activate
-```
-Start Backend
-```
 cd backend
 python3 manage.py runserver
 ```
