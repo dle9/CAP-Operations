@@ -1,6 +1,6 @@
 """
 Author: Deric Le
-Description: Define functions to be used for CrowdStrike API
+Description: Define functions to be used for Elastic API
 """
 
 import random 

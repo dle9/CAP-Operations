@@ -1,6 +1,6 @@
 """
 Author: Deric Le
-Description: Define functions to be used for APIs
+Description: Define functions to be used for ServiceNow API
 """
 
 import random 
