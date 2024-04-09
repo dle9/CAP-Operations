@@ -29,7 +29,7 @@ header .menu li {
 }
 
 header .menu li.active {
-    text-decoration: underline;
+    /* text-decoration: underline; */
 }
 
 /* Additional styles for Link component */

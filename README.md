@@ -61,7 +61,7 @@ Carousel items: Fetches from APIs and sends to Carousel
 2. Create a URLs file and add appropriate URL Paths using functions inside of that View.
 3. Define the Fetch functions for the tool inside of Carousel/items
 4. Go into Carousel/Conductor.js and add the new data appropriately (The code is very repeatable!)
-5. Go into Carousel/Thumbnails.js and add the new data appropriately (The code is very repeatable!)
+  - put assets into the appropriate folder
 ```
 
 
