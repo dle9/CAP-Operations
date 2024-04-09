@@ -18,12 +18,11 @@ import React, { useState, useEffect, useCallback } from 'react';
 function Carousel() {
     // init variables
     const autoCarouselTimer = 3333;
-    const activeCarouselTimer = 33333;
+    // const activeCarouselTimer = 33333;
     const fetchTimer = 5000;
     const [timerInterval, setTimerInterval] = useState(autoCarouselTimer);
     const [itemActive, setItemActive] = useState(0);
     const [isSpacebarLocked, setIsSpacebarLocked] = useState(false);
-    const [isWarning, setIsWarning] = useState(false);    
     
     // variable containing all API data
     const [apiData, setApiData] = useState({
@@ -87,51 +86,43 @@ function Carousel() {
         },
     ];
 
-    // handle right movement
+    // handle right arrow movement
     // useCallback = next() remains the same function instance across renders unless its dependencies change. 
     const next = useCallback(() => {
         if (!isSpacebarLocked) {
             setItemActive((itemActive + 1) % items.length);
-            setTimerInterval(autoCarouselTimer);
-        } else {
+        } else { // play warning animation
             const footer = document.querySelector('footer');
-            if (!isWarning) {
-                setIsWarning(true);
-                footer.classList.toggle('footer-shake');
+            if (!footer.classList.contains('footer-shake')) {
+                footer.classList.add('footer-shake');
                 setTimeout(() => {
-                    setIsWarning(false);
-                    footer.classList.toggle('footer-shake');
+                    footer.classList.remove('footer-shake');
                 }, 3000);
             }
         }
-    }, [isSpacebarLocked, itemActive, items.length, setItemActive, setTimerInterval, autoCarouselTimer, isWarning, setIsWarning]);
+    }, [isSpacebarLocked, itemActive, items.length, setItemActive, setTimerInterval, autoCarouselTimer]);
 
-    // handle left movement
+    // handle left arrow movement
     // useCallback = prev() remains the same function instance across renders unless its dependencies change. 
     const prev = useCallback(() => {
         if (!isSpacebarLocked) {
             setItemActive((itemActive - 1 + items.length) % items.length);
-            setTimerInterval(autoCarouselTimer);
-        } else {
+        } else { // play warning animation
             const footer = document.querySelector('footer');
-            if (!isWarning) {
-                setIsWarning(true);
-                footer.classList.toggle('footer-shake');
+            if (!footer.classList.contains('footer-shake')) {
+                footer.classList.add('footer-shake');
                 setTimeout(() => {
-                    setIsWarning(false);
-                    footer.classList.toggle('footer-shake');
+                    footer.classList.remove('footer-shake');
                 }, 3000);
             }
         }
-    }, [isSpacebarLocked, itemActive, items.length, setItemActive, setTimerInterval, autoCarouselTimer, isWarning, setIsWarning]);
+    }, [isSpacebarLocked, itemActive, items.length, setItemActive, setTimerInterval, autoCarouselTimer]);
 
     const handleKeyUp = (event) => {
         if (event.key === 'ArrowLeft') {
             prev();
-            setTimerInterval(activeCarouselTimer); // extend the timer when recently pressed arrow keys
         } else if (event.key === 'ArrowRight') {
             next();
-            setTimerInterval(activeCarouselTimer); // extend the timer when recently pressed arrow keys
         } else if (event.key === ' ') {
             setIsSpacebarLocked(!isSpacebarLocked);
             const item = document.querySelector('.thumbnail .item.active');
@@ -177,7 +168,7 @@ function Carousel() {
                 </div>
 
             </div>
-            <Thumbnails items={items} itemActive={itemActive} />
+            <Thumbnails items={items} isSpacebarLocked={isSpacebarLocked} itemActive={itemActive} setItemActive={setItemActive} />
 
             <footer>
                 <div>Navigate w/ Arrow Keys</div>
