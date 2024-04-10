@@ -21,12 +21,16 @@ function Carousel() {
     // variable containing all API data
     const items = Conductor();
 
+    // import mouse and kb controls
     const controls = useControls(
         isSpacebarLocked, setIsSpacebarLocked,
         items, itemActive, setItemActive, 
         timerInterval, setTimerInterval, autoCarouselTimer
     );
 
+    function playSound() {
+        new Audio()
+    }
     return (
         <div>
             <div className="Carousel">
