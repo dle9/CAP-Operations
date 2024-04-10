@@ -6,7 +6,15 @@ cd frontend
 npm install
 npm start
 ```
-Start Backend (New Terminal)
+
+Setup Backend
+```
+python3 -m venv pyvenv
+source pyvenv/bin/activate
+pip install -r requirements.txt
+```
+
+Start Backend (Inside pyvenv)
 ```
 source pyvenv/bin/activate
 cd backend
@@ -17,7 +25,6 @@ python3 manage.py runserver
 
 # File Structure
 ```
-pyvenv: Python virtual envt.
 frontend: Frontend code (React)  
 backend: Backend code (Django)
 capops_api: API code
@@ -66,7 +73,7 @@ Carousel items: Fetches from APIs and sends to Carousel
 ### Install Packages
 ```
 source pyvenv/bin/activate
-pip install django djangorestframework django-cors-headers
+pip install -r requirements.txt
 
 cd frontend
 npm install axios react-router-dom
