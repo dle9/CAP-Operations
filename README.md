@@ -1,5 +1,5 @@
 # Quickstart
-### Setup
+### Using Ubuntu WSL
 Start Frontend
 ```
 cd frontend
@@ -66,7 +66,7 @@ Carousel items: Fetches from APIs and sends to Carousel
 ### Install Packages
 ```
 source pyvenv/bin/activate
-pip install djangorestframework django-cors-headers
+pip install django djangorestframework django-cors-headers
 
 cd frontend
 npm install axios react-router-dom
@@ -77,7 +77,6 @@ npm i --save @fortawesome/react-fontawesome@latest
 ### Start Servers
 ```
 source pyvenv/bin/activate
-pip install django
 
 django-admin startproject django_project
 npx create-react-app react_app
