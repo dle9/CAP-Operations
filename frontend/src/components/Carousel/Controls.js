@@ -3,7 +3,7 @@
  * Description: Handles the controls of the App
  */
 
-import React, { useEffect, useCallback } from 'react';
+import { useEffect, useCallback } from 'react';
 
 function useControls (
     isSpacebarLocked, setIsSpacebarLocked,

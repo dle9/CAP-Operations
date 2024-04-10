@@ -9,13 +9,11 @@ import Thumbnails from './Thumbnails';
 import Conductor from './Conductor';
 import useControls from './Controls';
 
-import React, { useState, } from 'react';
+import React, { useState } from 'react';
 
 function Carousel() {
     // init variables
     const autoCarouselTimer = 3333;
-    // const activeCarouselTimer = 33333;
-    const fetchTimer = 5000;
     const [timerInterval, setTimerInterval] = useState(autoCarouselTimer);
     const [itemActive, setItemActive] = useState(0);
     const [isSpacebarLocked, setIsSpacebarLocked] = useState(false);
