@@ -4,7 +4,7 @@ Description: Define URL paths
 """
 
 from django.urls import path
-from capops_api.views import servicenow, crowdstrike, extrahop, elastic
+from capops_api.views import servicenow, crowdstrike, extrahop, elastic, scripts
 
 urlpatterns = [
     # ServiceNow
@@ -21,4 +21,6 @@ urlpatterns = [
     # Elastic
     path('EL/detections/criticals', extrahop.getCriticals, name='EL-criticals'),
     path('EL/detections/highs', extrahop.getHighs, name='EL-highs'),
+
+    path('scripts/list_all', scripts.list_all_scripts, name='List-Snowscripts')
 ]
