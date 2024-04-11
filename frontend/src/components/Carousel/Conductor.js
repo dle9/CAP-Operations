@@ -8,10 +8,10 @@ import CrowdStrikeBg from '../../assets/images/crowdstrike2-full.jpg';
 import ExtraHopBg from '../../assets/images/extrahop-full.jpg';
 import ElasticBg from '../../assets/images/elastic2-full.jpg';
 
-import FetchSNOW from './items/ServiceNow';
-import FetchCS from './items/CrowdStrike';
-import FetchEH from './items/ExtraHop';
-import FetchEL from './items/Elastic';
+import FetchSNOW from './workers/servicenow';
+import FetchCS from './workers/crowdstrike';
+import FetchEH from './workers/extrahop';
+import FetchEL from './workers/elastic';
 
 import { useState, useEffect } from 'react';
 
