@@ -16,7 +16,7 @@ import FetchEL from './workers/elastic';
 import { useState, useEffect } from 'react';
 
 function Conductor() {
-    const fetchTimer = 5000;
+    const fetchTimer = 3333;
 
     // variable containing all API data
     const [apiData, setApiData] = useState({
