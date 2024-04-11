@@ -99,7 +99,7 @@
 footer{
     position: absolute;
     top: 90%;
-    left: 3%;
+    left: 2%;
     /* transform: translate(-50%, -50%); */
     z-index: 100;
     overflow: hidden;

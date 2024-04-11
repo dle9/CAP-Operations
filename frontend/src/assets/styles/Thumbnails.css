@@ -34,6 +34,7 @@
     border-radius: 20px;
 
     cursor: pointer;
+    user-select: none;
 }
 .thumbnail .item:hover{
     transform: scale(110%);

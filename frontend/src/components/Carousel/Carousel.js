@@ -7,30 +7,26 @@ import '../../assets/styles/Carousel.css';
 
 import Thumbnails from './Thumbnails';
 import Conductor from './Conductor';
-import useControls from './Controls';
+import useKeyboardControls from './controls/keyboardControls';
 
 import React, { useState } from 'react';
 
 function Carousel() {
     // init variables
-    const autoCarouselTimer = 3333;
-    const [timerInterval, setTimerInterval] = useState(autoCarouselTimer);
+    const carouselTimer = 3333;
     const [itemActive, setItemActive] = useState(0);
-    const [isSpacebarLocked, setIsSpacebarLocked] = useState(false);
+    const [isLocked, setIsLocked] = useState(false);
     
     // variable containing all API data
     const items = Conductor();
 
-    // import mouse and kb controls
-    const controls = useControls(
-        isSpacebarLocked, setIsSpacebarLocked,
+    // import kb controls
+    useKeyboardControls(
+        isLocked, setIsLocked,
         items, itemActive, setItemActive, 
-        timerInterval, setTimerInterval, autoCarouselTimer
+        carouselTimer
     );
 
-    function playSound() {
-        new Audio()
-    }
     return (
         <div>
             <div className="Carousel">
@@ -48,11 +44,12 @@ function Carousel() {
                 </div>
 
             </div>
-            <Thumbnails items={items} isSpacebarLocked={isSpacebarLocked} itemActive={itemActive} setItemActive={setItemActive} />
+            <Thumbnails isLocked={isLocked} setIsLocked={setIsLocked} items={items} itemActive={itemActive} setItemActive={setItemActive} />
 
             <footer>
                 <div>Navigate w/ Arrow Keys</div>
                 <div>Press 'Space' to Pause</div>
+                <div>Mouse controls intuitive</div>
             </footer>
             
         </div>

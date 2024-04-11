@@ -7,22 +7,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import '../../assets/styles/Thumbnails.css'
 
+import useMouseControls from './controls/mouseControls';
+
 import React from 'react';
 
-function Thumbnails({ items, isSpacebarLocked, itemActive, setItemActive }) {
-    const handleClick = (index) => {
-        if (!isSpacebarLocked) {
-            setItemActive(index);
-        } else { // play warning animation
-            const footer = document.querySelector('footer');
-            if (!footer.classList.contains('footer-shake')) {
-                footer.classList.add('footer-shake');
-                setTimeout(() => {
-                    footer.classList.remove('footer-shake');
-                }, 3000);
-            }
-        }
-    };
+function Thumbnails({ isLocked, setIsLocked, items, itemActive, setItemActive }) {
+    const handleClick = useMouseControls(isLocked, setIsLocked, itemActive, setItemActive);
 
     return (
         <div>
@@ -35,7 +25,7 @@ function Thumbnails({ items, isSpacebarLocked, itemActive, setItemActive }) {
                     className={`item ${index === itemActive ? 'active' : ''}`} 
                     rel="noreferrer"
                     onClick={() => handleClick(index)}
-                    >
+                    >   
                         <div className='content'>
                             <FontAwesomeIcon icon={faArrowRight} />
                         </div>

@@ -1,19 +1,20 @@
 /**
  * Author: Deric Le
- * Description: Handles the controls of the App
+ * Description: Handles the keyboard controls of the App
  */
 
 import { useEffect, useCallback } from 'react';
 
-function useControls (
-    isSpacebarLocked, setIsSpacebarLocked,
+function useKeyboardControls (
+    isLocked, setIsLocked,
     items, itemActive, setItemActive,
-    timerInterval, setTimerInterval, autoCarouselTimer,
+    carouselTimer
 ) {
+
     // handle right arrow movement
     // useCallback = next() remains the same function instance across renders unless its dependencies change. 
     const next = useCallback(() => {
-        if (!isSpacebarLocked) {
+        if (!isLocked) {
             setItemActive((itemActive + 1) % items.length);
         } else { // play warning animation
             const footer = document.querySelector('footer');
@@ -24,12 +25,12 @@ function useControls (
                 }, 3000);
             }
         }
-    }, [isSpacebarLocked, itemActive, items.length, setItemActive, setTimerInterval, autoCarouselTimer]);
+    }, [isLocked, itemActive, items.length, setItemActive]);
 
     // handle left arrow movement
     // useCallback = prev() remains the same function instance across renders unless its dependencies change. 
     const prev = useCallback(() => {
-        if (!isSpacebarLocked) {
+        if (!isLocked) {
             setItemActive((itemActive - 1 + items.length) % items.length);
         } else { // play warning animation
             const footer = document.querySelector('footer');
@@ -40,7 +41,7 @@ function useControls (
                 }, 3000);
             }
         }
-    }, [isSpacebarLocked, itemActive, items.length, setItemActive, setTimerInterval, autoCarouselTimer]);
+    }, [isLocked, itemActive, items.length, setItemActive]);
 
     const handleKeyUp = (event) => {
         if (event.key === 'ArrowLeft') {
@@ -48,10 +49,9 @@ function useControls (
         } else if (event.key === 'ArrowRight') {
             next();
         } else if (event.key === ' ') {
-            setIsSpacebarLocked(!isSpacebarLocked);
+            setIsLocked(!isLocked);
             const item = document.querySelector('.thumbnail .item.active');
             item.classList.toggle('active-border');
-            setTimerInterval(autoCarouselTimer); // reset the timer when unlocked
         }
     };
 
@@ -65,15 +65,15 @@ function useControls (
     // automatic Carousel
     useEffect(() => {
         const refreshInterval = setInterval(() => {
-            if (!isSpacebarLocked) {
+            if (!isLocked) {
                 next();
             }
-        }, timerInterval);
+        }, carouselTimer);
 
         return () => {
             clearInterval(refreshInterval);
         };
-    }, [itemActive, timerInterval, isSpacebarLocked, next]);
+    }, [itemActive, carouselTimer, isLocked, next]);
 }
 
-export default useControls;
+export default useKeyboardControls;
