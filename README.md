@@ -7,16 +7,9 @@ npm install
 npm start
 ```
 
-Setup Backend
+Start Backend (Recommended: use python venv)
 ```
-python3 -m venv pyvenv
-source pyvenv/bin/activate
 pip install -r requirements.txt
-```
-
-Start Backend (Inside pyvenv)
-```
-source pyvenv/bin/activate
 cd backend
 python3 manage.py runserver
 ```
@@ -29,7 +22,8 @@ frontend: Frontend code (React)
 backend: Backend code (Django)
 capops_api: API code
 Carousel: The slideshow container
-Carousel items: Fetches from APIs and sends to Carousel
+Carousel items: Fetches from APIs and sends to Conductor
+Conductor: Aggregates fetch instructions and sends to Carousel
 ```
 
 
@@ -72,7 +66,6 @@ Carousel items: Fetches from APIs and sends to Carousel
 # Initialization
 ### Install Packages
 ```
-source pyvenv/bin/activate
 pip install -r requirements.txt
 
 cd frontend
@@ -81,13 +74,11 @@ npm i --save @fortawesome/fontawesome-svg-core
 npm i --save @fortawesome/free-solid-svg-icons
 npm i --save @fortawesome/react-fontawesome@latest
 ```
-### Start Servers
+### Create Stack
 ```
-source pyvenv/bin/activate
-
 django-admin startproject django_project
 npx create-react-app react_app
 
-cd djangoproject
+cd django_project
 python3 manage.py startapp api
 ``` 
