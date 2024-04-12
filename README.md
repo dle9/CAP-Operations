@@ -22,7 +22,7 @@ frontend: Frontend code (React)
 backend: Backend code (Django)
 capops_api: API code
 Carousel: The slideshow container
-Carousel items: Fetches from APIs and sends to Conductor
+Carousel workers: Fetches from APIs and sends to Conductor
 Conductor: Aggregates fetch instructions and sends to Carousel
 ```
 
@@ -41,7 +41,7 @@ Conductor: Aggregates fetch instructions and sends to Carousel
   - gathers data from APIs and sends to Carousel 
 ~/frontend/src/components/Carousel/Thumbnails.js
   - the boxes along the bottom of the screen
-~/frontend/src/components/Carousel/items
+~/frontend/src/components/Carousel/workers
   - the frontend tools that fetch data from the backend
   ```
 ### Backend Development
@@ -89,5 +89,5 @@ python3 manage.py startapp api
 ```
 - button to create a worklog > itsec google drive
 - threat intelligence feed
-- feedback button > capoperations.cyberresponse
+- feedback button > capoperations.cyberresponse@gmail
 ```
