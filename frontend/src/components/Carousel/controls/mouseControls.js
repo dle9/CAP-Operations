@@ -3,6 +3,7 @@
  * Description: Handles the mouse controls of the App
  */
 
+import { errorSoundEffect } from "./soundControls";
 
 function useMouseControls (
     isLocked, 
@@ -19,19 +20,20 @@ function useMouseControls (
             item.classList.toggle('active-border');
         }
         // unlock on current active thumbnail
-        if (itemActive === index && isLocked) {
+        else if (itemActive === index && isLocked) {
             setIsLocked(!isLocked);
             const item = document.querySelector('.thumbnail .item.active');
             item.classList.toggle('active-border');
         }
         // click on any other thumbnail
-        else if (itemActive != index && !isLocked) {
+        else if (itemActive !== index && !isLocked) {
             setItemActive(index);
         }
-        // locked! don't take action
+        // locked! don't take actions
         else {
             const footer = document.querySelector('footer');
-            if (!footer.classList.contains('footer-shake')) {
+            if (!footer.classList.contains('footer-shake') ) {
+                errorSoundEffect.play();
                 footer.classList.add('footer-shake');
                 setTimeout(() => {
                     footer.classList.remove('footer-shake');
@@ -42,5 +44,4 @@ function useMouseControls (
 
     return handleClick;
 }
-
 export default useMouseControls;

@@ -3,6 +3,8 @@
  * Description: Manages API data, sends to Carousel
  */
 
+import { notifSoundEffect } from './controls/soundControls';
+
 import ServiceNowBg from '../../assets/images/servicenow-full.jpg';
 import CrowdStrikeBg from '../../assets/images/crowdstrike2-full.jpg';
 import ExtraHopBg from '../../assets/images/extrahop-full.jpg';
@@ -13,20 +15,20 @@ import FetchCS from './workers/crowdstrike';
 import FetchEH from './workers/extrahop';
 import FetchEL from './workers/elastic';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';    
 
 function Conductor() {
-    const fetchTimer = 3333;
+    const fetchTimer = 5000;
 
     // variable containing all API data
     const [apiData, setApiData] = useState({
-        SNOW: null,
-        CS: null,
-        EH: null,
-        EL: null,
+        SNOW: null, // ServiceNow
+        CS: null,   // CrowdStrike
+        EH: null,   // ExtraHop
+        EL: null,   // Elastic
     });
 
-    // fetch the API data
+    // fetch the API data on cycle
     useEffect(() => {
         const fetchData = async () => {
             const SNOWdata = await FetchSNOW();
@@ -40,6 +42,8 @@ function Conductor() {
                 EH: EHdata,
                 EL: ELdata,
             })
+
+            notifSoundEffect.play();
         };
 
         fetchData();
