@@ -3,7 +3,7 @@
  * Description: Handles the mouse controls of the App
  */
 
-import errorSound from '../../../assets/sounds/error.mp3'
+import { errorSoundEffect } from "./soundControls";
 
 function useMouseControls (
     isLocked, 
@@ -11,8 +11,6 @@ function useMouseControls (
     itemActive,
     setItemActive,
 ) {
-    const errorSoundEffect = new Audio(errorSound);
-
     // logic for clicking on thumbnails
     const handleClick = (index) => {
         // lock on current active thumbnail

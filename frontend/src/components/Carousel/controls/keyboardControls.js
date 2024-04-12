@@ -3,15 +3,14 @@
  * Description: Handles the keyboard controls of the App
  */
 
-import errorSound from '../../../assets/sounds/error.mp3'
 import { useEffect, useCallback } from 'react';
+import { errorSoundEffect } from './soundControls';
 
 function useKeyboardControls (
     isLocked, setIsLocked,
     items, itemActive, setItemActive,
     carouselTimer
 ) {
-    const errorSoundEffect = new Audio(errorSound);
 
     // handle right arrow movement
     // useCallback = next() remains the same function instance across renders unless its dependencies change. 
