@@ -3,6 +3,7 @@
  * Description: Handles the keyboard controls of the App
  */
 
+import errorSound from '../../../assets/sounds/error.mp3'
 import { useEffect, useCallback } from 'react';
 
 function useKeyboardControls (
@@ -10,6 +11,7 @@ function useKeyboardControls (
     items, itemActive, setItemActive,
     carouselTimer
 ) {
+    const errorSoundEffect = new Audio(errorSound);
 
     // handle right arrow movement
     // useCallback = next() remains the same function instance across renders unless its dependencies change. 
@@ -19,6 +21,7 @@ function useKeyboardControls (
         } else { // play warning animation
             const footer = document.querySelector('footer');
             if (!footer.classList.contains('footer-shake')) {
+                errorSoundEffect.play();
                 footer.classList.add('footer-shake');
                 setTimeout(() => {
                     footer.classList.remove('footer-shake');
@@ -35,6 +38,7 @@ function useKeyboardControls (
         } else { // play warning animation
             const footer = document.querySelector('footer');
             if (!footer.classList.contains('footer-shake')) {
+                errorSoundEffect.play();
                 footer.classList.add('footer-shake');
                 setTimeout(() => {
                     footer.classList.remove('footer-shake');
@@ -43,7 +47,7 @@ function useKeyboardControls (
         }
     }, [isLocked, itemActive, items.length, setItemActive]);
 
-    const handleKeyUp = (event) => {
+    const handleKeyUp = useCallback((event) => {
         if (event.key === 'ArrowLeft') {
             prev();
         } else if (event.key === 'ArrowRight') {
@@ -53,14 +57,14 @@ function useKeyboardControls (
             const item = document.querySelector('.thumbnail .item.active');
             item.classList.toggle('active-border');
         }
-    };
+    }, [isLocked, setIsLocked, next, prev]);
 
     useEffect(() => {
         document.addEventListener('keyup', handleKeyUp);
         return () => {
             document.removeEventListener('keyup', handleKeyUp);
         };
-    });
+    }, [handleKeyUp]);
 
     // automatic Carousel
     useEffect(() => {
@@ -73,7 +77,7 @@ function useKeyboardControls (
         return () => {
             clearInterval(refreshInterval);
         };
-    }, [itemActive, carouselTimer, isLocked, next]);
+    }, [carouselTimer, isLocked, next]);
 }
 
 export default useKeyboardControls;
