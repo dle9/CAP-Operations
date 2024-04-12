@@ -90,4 +90,6 @@ python3 manage.py startapp api
 - button to create a worklog > itsec google drive
 - threat intelligence feed
 - feedback button > capoperations.cyberresponse
+- allow user to choose which tool plays notification
+  - fontawesome sound icon, press to toggle sound of each tool
 ```

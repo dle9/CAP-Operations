@@ -24,10 +24,10 @@ function Conductor() {
 
     // variable containing all API data
     const [apiData, setApiData] = useState({
-        SNOW: null,
-        CS: null,
-        EH: null,
-        EL: null,
+        SNOW: null, // ServiceNow
+        CS: null,   // CrowdStrike
+        EH: null,   // ExtraHop
+        EL: null,   // Elastic
     });
 
     // fetch the API data on cycle
