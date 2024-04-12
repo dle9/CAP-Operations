@@ -24,7 +24,6 @@ function Thumbnails({ isLocked, setIsLocked, items, itemActive, setItemActive })
                     target="_blank" 
                     className={`item ${index === itemActive ? 'active' : ''}`} 
                     rel="noreferrer"
-                    onClick={() => handleClick(index)}
                     >   
                         <div className='content'>
                             <FontAwesomeIcon icon={faArrowRight} />
