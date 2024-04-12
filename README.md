@@ -82,3 +82,12 @@ npx create-react-app react_app
 cd django_project
 python3 manage.py startapp api
 ``` 
+
+
+
+# TODO
+```
+- button to create a worklog > itsec google drive
+- threat intelligence feed
+- feedback button > capoperations.cyberresponse
+```
