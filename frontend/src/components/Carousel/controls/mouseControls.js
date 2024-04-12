@@ -26,7 +26,7 @@ function useMouseControls (
             item.classList.toggle('active-border');
         }
         // click on any other thumbnail
-        else if (itemActive != index && !isLocked) {
+        else if (itemActive !== index && !isLocked) {
             setItemActive(index);
         }
         // locked! don't take actions
