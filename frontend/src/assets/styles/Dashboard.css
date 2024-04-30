@@ -1,0 +1,116 @@
+.Dashboard{
+    height: 100vh;
+    margin-top: -50px;
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    /* animation: shake 0.5s cubic-bezier(0.36, 0.07, 0.19, 0.97) both; */
+}
+::-webkit-scrollbar {
+    display: none;
+}
+
+.Dashboard .list .item{
+    position: absolute;
+    inset: 0 0 0 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: .5s;
+    font-size: 1.6rem;
+}
+.Dashboard .list .item img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(70%);
+}
+.Dashboard .list .item::after{
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    background-image: linear-gradient(
+        rgba(0,0,0,0.39),   
+        rgba(0,0,0,1))
+    /* background-image: linear-gradient(
+        to top, #000 6%, transparent
+    ); */
+}
+.Dashboard .list .item .content{
+    position: absolute;
+    left: 50%;
+    top: 36%;
+    max-width: 80%;
+    transform: translate(-50%, -50%);
+    /* background-color: red; */
+    z-index: 1;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.Dashboard .list .item .content p:nth-child(1){
+    text-transform: uppercase;
+}
+.Dashboard .list .item .content h2{
+    font-size: 100px;
+    margin: 0;
+}
+.Dashboard .list .item .content h2{
+    font-size: 100px;
+    margin: 0;
+}
+
+/* ================================= ACTIVE ITEM ================================ */
+.Dashboard .list .item.active{
+    opacity: 1;
+    z-index: 10;
+}
+@keyframes showContent {
+    to{
+        transform: translateY(0);
+        filter: blur(0);
+        opacity: 1;
+    }
+}
+.Dashboard .list .item.active p:nth-child(1),
+.Dashboard .list .item.active h2,
+.Dashboard .list .item.active p:nth-child(3){
+    transform: translateY(30px);
+    filter: blur(20px);
+    opacity: 0;
+    animation: showContent .3s .3s ease-in-out 1 forwards;
+}
+.Dashboard .list .item.active h2{
+    animation-delay: 0.3s;
+}
+.Dashboard .list .item.active p:nth-child(3){
+    animation-duration: 0.3s;
+}
+
+/* ==================================== FOOTER ===============================================*/
+footer{
+    position: absolute;
+    top: 90%;
+    left: 2%;
+    /* transform: translate(-50%, -50%); */
+    z-index: 100;
+    overflow: hidden;
+}
+
+.footer-shake{
+    animation: shake 0.5s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+}
+
+@media screen and (max-width: 1080px) {
+    footer{
+        display: none;
+    }
+}

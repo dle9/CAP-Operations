@@ -1,9 +1,21 @@
-.vscode/
-pyvenv/
-venv/
-
 # Backend
-*/__pycache__/
+backend/backend/__pycache__/*
+backend/capops_api/__pycache__/*
+backend/capops_api/migrations/__pycache__/*
+**/__pycache__
 
 # Frontend
 frontend/node_modules/
+frontend/build/
+
+# misc
+.vscode/
+pyvenv/
+.pyvenv/
+venv/
+.venv/
+.msys-venv/
+.env
+frontend/.env
+backend/.env
+**/.env
